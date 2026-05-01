@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>selectSIM スタッフランキング｜2026年4月度</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Bebas+Neue&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08090f;--surface:#0e1020;--surface2:#141628;--border:#1f2240;
+  --accent:#3b5bff;--accent2:#6e3bff;
+  --gold:#f4c430;--gold-glow:rgba(244,196,48,.3);
+  --silver:#c0cfe0;--silver-glow:rgba(192,207,224,.25);
+  --bronze:#cd7f32;--bronze-glow:rgba(205,127,50,.25);
+  --text:#e8eaf6;--muted:#5a617a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 15% 10%,rgba(59,91,255,.09) 0%,transparent 50%),radial-gradient(ellipse at 85% 85%,rgba(110,59,255,.07) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:1;}
+
+/* HEADER */
+header{padding:40px 20px 28px;text-align:center;border-bottom:1px solid var(--border);margin-bottom:32px;}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:.25em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,8vw,82px);letter-spacing:.05em;background:linear-gradient(135deg,#fff 30%,#9baeff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:.9;}
+.meta{margin-top:14px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.chip{background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:11px;color:var(--muted);}
+.chip strong{color:var(--text);}
+
+/* TABS */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px;padding:0 20px;justify-content:center;}
+.tb{font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;padding:8px 16px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.tb:hover{border-color:var(--accent);color:var(--text);}
+.tb.on{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 20px rgba(59,91,255,.4);}
+
+/* PANELS */
+.panel{display:none;}.panel.vis{display:block;}
+.phead{text-align:center;margin-bottom:24px;}
+.phead h2{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;}
+.phead p{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* PODIUM */
+.podium{display:flex;justify-content:center;align-items:flex-end;gap:10px;margin-bottom:24px;padding:0 8px;}
+.pc{flex:1;max-width:290px;border-radius:16px;padding:16px 14px;text-align:center;animation:fu .5s ease both;}
+.p1{background:linear-gradient(160deg,#1c1700,#0e0e00);border:1.5px solid var(--gold);box-shadow:0 0 40px var(--gold-glow);order:1;padding-top:30px;}
+.p2{background:linear-gradient(160deg,#111418,#0a0c10);border:1.5px solid var(--silver);box-shadow:0 0 28px var(--silver-glow);order:0;padding-top:20px;}
+.p3{background:linear-gradient(160deg,#1a0e06,#0e0800);border:1.5px solid var(--bronze);box-shadow:0 0 22px var(--bronze-glow);order:2;padding-top:14px;}
+.crown{font-size:22px;margin-bottom:4px;display:block;}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-family:'Bebas Neue',sans-serif;font-size:17px;margin:0 auto 10px;}
+.p1 .badge{background:var(--gold);color:#000;}.p2 .badge{background:var(--silver);color:#000;}.p3 .badge{background:var(--bronze);color:#fff;}
+.p-store{font-size:10px;letter-spacing:.08em;color:var(--muted);margin-bottom:3px;text-transform:uppercase;}
+.p-name{font-weight:900;font-size:clamp(13px,2.5vw,17px);line-height:1.2;margin-bottom:5px;}
+.p-val{font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1;}
+.p1 .p-val{color:var(--gold);}.p2 .p-val{color:var(--silver);}.p3 .p-val{color:var(--bronze);}
+.p-unit{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* LIST */
+.rlist{display:flex;flex-direction:column;gap:7px;margin-bottom:44px;}
+.ri{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 16px;animation:fl .4s ease both;transition:border-color .2s;}
+.ri:hover{border-color:rgba(59,91,255,.3);}
+.rn{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--muted);width:26px;text-align:center;flex-shrink:0;}
+.rinfo{flex:1;min-width:0;}
+.r-store{font-size:10px;color:var(--muted);}
+.r-name{font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rbar{height:3px;background:var(--border);border-radius:2px;margin-top:5px;overflow:hidden;}
+.rfill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.rv{font-family:'Bebas Neue',sans-serif;font-size:26px;text-align:right;flex-shrink:0;}
+.ru{font-size:10px;color:var(--muted);display:block;text-align:right;}
+
+/* VALUE COLORS */
+.cg{color:var(--gold);}.cs{color:var(--silver);}.cb{color:var(--bronze);}.ca{color:#9baeff;}
+
+/* ROLE BADGES */
+.rb{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:4px;margin-left:5px;vertical-align:middle;letter-spacing:.04em;}
+.r-exec  {background:rgba(255,215,0,.15);    color:#ffd700;border:1px solid rgba(255,215,0,.35);}
+.r-mgr   {background:rgba(244,67,54,.13);    color:#ef5350;border:1px solid rgba(244,67,54,.3);}
+.r-sub   {background:rgba(156,39,176,.13);   color:#ba68c8;border:1px solid rgba(156,39,176,.28);}
+.r-am    {background:rgba(0,188,212,.13);    color:#00bcd4;border:1px solid rgba(0,188,212,.28);}
+.r-ad    {background:rgba(33,150,243,.13);   color:#42a5f5;border:1px solid rgba(33,150,243,.28);}
+.r-gen   {background:rgba(144,164,174,.1);   color:#90a4ae;border:1px solid rgba(144,164,174,.25);}
+.r-biz   {background:rgba(121,85,72,.13);    color:#a1887f;border:1px solid rgba(121,85,72,.28);}
+
+/* ANIMATIONS */
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fl{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+.d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}
+.d5{animation-delay:.25s}.d6{animation-delay:.3s}.d7{animation-delay:.35s}.d8{animation-delay:.4s}
+.d9{animation-delay:.45s}.d10{animation-delay:.5s}.d11{animation-delay:.55s}.d12{animation-delay:.6s}
+
+footer{text-align:center;padding:28px 20px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);letter-spacing:.05em;margin-top:20px;}
+@media(max-width:600px){
+  .podium{flex-wrap:wrap;}
+  .pc{min-width:130px;flex:1 1 130px;}
+  .p1{order:0;flex-basis:100%;max-width:100%;}
+  .p2{order:1;}.p3{order:2;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="eyebrow">selectSIM — 2026年4月度</p>
+    <h1>STAFF RANKING</h1>
+    <div class="meta">
+      <span class="chip">対象店舗 <strong>5店舗</strong></span>
+      <span class="chip">スタッフ数 <strong>25名</strong></span>
+      <span class="chip">集計期間 <strong>2026年4月1日〜30日</strong></span>
+      <span class="chip">更新 <strong>毎週月曜日</strong></span>
+      <span class="chip">固定・NURO・macaroon <strong>クローズ集計</strong></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="tabs">
+    <button class="tb on"  onclick="sw('total-sales',this)">🏆 総販</button>
+    <button class="tb"     onclick="sw('points',this)">⭐ 獲得ポイント</button>
+    <button class="tb"     onclick="sw('ratio',this)">📊 目標達成率</button>
+    <button class="tb"     onclick="sw('fixed',this)">📡 固定回線</button>
+    <button class="tb"     onclick="sw('nuro',this)">🌐 NURO光</button>
+    <button class="tb"     onclick="sw('macaroon',this)">🍪 macaroon</button>
+  </nav>
+
+  <div id="p-total-sales" class="panel vis">
+    <div class="phead"><h2>🏆 総販ランキング</h2><p>月間総販件数（全商材合計）</p></div>
+  </div>
+  <div id="p-points" class="panel">
+    <div class="phead"><h2>⭐ 獲得ポイントランキング</h2><p>月間獲得ポイント合計</p></div>
+  </div>
+  <div id="p-ratio" class="panel">
+    <div class="phead"><h2>📊 店舗目標達成率ランキング</h2><p>個人獲得ポイント ÷ 店舗月間目標ポイント</p></div>
+  </div>
+  <div id="p-fixed" class="panel">
+    <div class="phead"><h2>📡 固定回線ランキング</h2><p>Air + ソフトバンク光　クローズ件数</p></div>
+  </div>
+  <div id="p-nuro" class="panel">
+    <div class="phead"><h2>🌐 NURO光ランキング</h2><p>NURO光　クローズ件数</p></div>
+  </div>
+  <div id="p-macaroon" class="panel">
+    <div class="phead"><h2>🍪 macaroonランキング</h2><p>macaroon　クローズ件数</p></div>
+  </div>
+</div>
+
+<footer>selectSIM スタッフランキング｜2026年4月度　このデータは社内使用限定です</footer>
+
+<script>
+const STAFF=[
+  {store:"逆瀬川",      name:"森口　智司",   role:"取締役",      sales:18,pts:45.486, target:600,  fixed:1,nuro:1,mac:3},
+  {store:"逆瀬川",      name:"木本　裕介",   role:"副店長",      sales:42,pts:121.448,target:600,  fixed:7,nuro:2,mac:4},
+  {store:"逆瀬川",      name:"熊谷　丈一郎", role:"一般（２級）", sales:20,pts:57.18,  target:600,  fixed:2,nuro:0,mac:2},
+  {store:"逆瀬川",      name:"種藤　楓夢花", role:"",             sales:27,pts:65.98,  target:600,  fixed:2,nuro:0,mac:5},
+  {store:"逆瀬川",      name:"大舘　優也",   role:"常勤業務委託", sales:1, pts:9.0,    target:600,  fixed:0,nuro:0,mac:0},
+  {store:"湊川プラザ",  name:"中本　佑友",   role:"AM",          sales:6, pts:13.494, target:600,  fixed:1,nuro:0,mac:0},
+  {store:"湊川プラザ",  name:"井上　和也",   role:"店長",        sales:14,pts:37.045, target:600,  fixed:4,nuro:0,mac:0},
+  {store:"湊川プラザ",  name:"亀野　龍馬",   role:"AD（１級）",  sales:69,pts:244.763,target:600,  fixed:9,nuro:6,mac:5},
+  {store:"湊川プラザ",  name:"沼田　彩",     role:"一般（２級）", sales:19,pts:63.46,  target:600,  fixed:2,nuro:1,mac:0},
+  {store:"湊川プラザ",  name:"渡辺　翔",     role:"SBSP",        sales:22,pts:62.99,  target:600,  fixed:3,nuro:1,mac:0},
+  {store:"かみしんプラザ",name:"川嶋　未来樹",role:"",            sales:27,pts:72.28,  target:750,  fixed:4,nuro:0,mac:2},
+  {store:"かみしんプラザ",name:"赤星　友香",  role:"",            sales:47,pts:104.98, target:750,  fixed:5,nuro:0,mac:0},
+  {store:"かみしんプラザ",name:"水町　颯斗",  role:"",            sales:80,pts:229.008,target:750,  fixed:9,nuro:2,mac:8},
+  {store:"かみしんプラザ",name:"金谷　黎騎",  role:"",            sales:59,pts:179.42, target:750,  fixed:7,nuro:0,mac:4},
+  {store:"かみしんプラザ",name:"鯨岡　くるみ",role:"",            sales:11,pts:37.95,  target:750,  fixed:2,nuro:0,mac:0},
+  {store:"かみしんプラザ",name:"和賀　弘晃",  role:"",            sales:9, pts:28.8,   target:750,  fixed:0,nuro:0,mac:0},
+  {store:"甲南山手",    name:"武田　裕史",   role:"店長",        sales:9, pts:18.005, target:500,  fixed:2,nuro:0,mac:0},
+  {store:"甲南山手",    name:"近藤　真司",   role:"AD（２級）",  sales:35,pts:115.5,  target:500,  fixed:7,nuro:1,mac:4},
+  {store:"甲南山手",    name:"織田　幸四郎", role:"常勤業務委託", sales:15,pts:34.671, target:500,  fixed:4,nuro:0,mac:0},
+  {store:"甲南山手",    name:"原口　ひかる", role:"SBSP",        sales:1, pts:3.0,    target:500,  fixed:1,nuro:0,mac:0},
+  {store:"布施",        name:"松永　美空",   role:"店長",        sales:22,pts:46.45,  target:752.5,fixed:4,nuro:0,mac:0},
+  {store:"布施",        name:"内川　力哉",   role:"一般（１級）", sales:21,pts:56.14,  target:752.5,fixed:4,nuro:0,mac:3},
+  {store:"布施",        name:"金林　金平",   role:"常勤業務委託", sales:45,pts:153.86, target:752.5,fixed:6,nuro:1,mac:1},
+  {store:"布施",        name:"中村　太一",   role:"常勤業務委託", sales:38,pts:103.0,  target:752.5,fixed:5,nuro:0,mac:0},
+  {store:"布施",        name:"波左間　良裕", role:"",            sales:0, pts:4.5,    target:752.5,fixed:0,nuro:0,mac:0},
+  {store:"布施",        name:"木下　智理",   role:"常勤業務委託", sales:1, pts:2.2,    target:752.5,fixed:0,nuro:0,mac:0},
+];
+
+// Role → badge class & display text
+function rbadge(r){
+  if(!r)return '';
+  let cls='r-gen';
+  if(r==='取締役')              cls='r-exec';
+  else if(r==='店長')           cls='r-mgr';
+  else if(r==='副店長')         cls='r-sub';
+  else if(r==='AM')             cls='r-am';
+  else if(r.startsWith('AD'))   cls='r-ad';
+  else if(r.includes('業務委託')||r==='SBSP') cls='r-biz';
+  else if(r.includes('一般'))   cls='r-gen';
+  return `<span class="rb ${cls}">${r}</span>`;
+}
+
+const rc=i=>['cg','cs','cb','ca'][Math.min(i,3)];
+
+function buildPanel(id,key,unit,fmt){
+  const el=document.getElementById('p-'+id);
+  if(!el)return;
+  const gv=s=>key==='ratio'?(s.target>0?s.pts/s.target*100:0):s[key];
+  const sorted=[...STAFF].map(s=>({...s,val:gv(s)})).sort((a,b)=>b.val-a.val);
+  const maxVal=sorted[0]?.val||1;
+  const top3=sorted.filter(s=>s.val>0).slice(0,3);
+
+  // PODIUM — display order: 2nd, 1st, 3rd
+  const ord=[top3[1],top3[0],top3[2]].filter(Boolean);
+  let h='<div class="podium">';
+  ord.forEach(s=>{
+    const ri=sorted.indexOf(s);
+    const dv=fmt?fmt(s.val):(Number.isInteger(s.val)?s.val:s.val.toFixed(2));
+    h+=`<div class="pc p${ri+1}">
+      ${ri===0?'<span class="crown">👑</span>':''}
+      <div class="badge">${ri+1}</div>
+      <div class="p-store">${s.store}</div>
+      <div class="p-name">${s.name}${rbadge(s.role)}</div>
+      <div class="p-val">${dv}</div>
+      <div class="p-unit">${unit}</div>
+    </div>`;
+  });
+  h+='</div>';
+
+  // LIST rank 4+
+  h+='<div class="rlist">';
+  sorted.slice(3).forEach((s,i)=>{
+    const ri=sorted.indexOf(s);
+    const pct=maxVal>0?s.val/maxVal*100:0;
+    const dv=fmt?fmt(s.val):(Number.isInteger(s.val)?s.val:s.val.toFixed(2));
+    h+=`<div class="ri d${Math.min(i+1,12)}">
+      <div class="rn">${ri+1}</div>
+      <div class="rinfo">
+        <div class="r-store">${s.store}</div>
+        <div class="r-name">${s.name}${rbadge(s.role)}</div>
+        <div class="rbar"><div class="rfill" style="width:${pct.toFixed(1)}%"></div></div>
+      </div>
+      <div>
+        <div class="rv ${rc(ri)}">${dv}</div>
+        <div class="ru">${unit}</div>
+      </div>
+    </div>`;
+  });
+  h+='</div>';
+  el.innerHTML+=h;
+}
+
+function sw(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('vis'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  document.getElementById('p-'+id).classList.add('vis');
+  btn.classList.add('on');
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  buildPanel('total-sales','sales','件',null);
+  buildPanel('points','pts','pt',v=>v.toFixed(2));
+  buildPanel('ratio','ratio','%',v=>v.toFixed(1)+'%');
+  buildPanel('fixed','fixed','件',null);
+  buildPanel('nuro','nuro','件',null);
+  buildPanel('macaroon','mac','件',null);
+});
+</script>
+</body>
+</html>
