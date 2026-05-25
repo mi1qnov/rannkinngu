@@ -479,7 +479,7 @@ function sw(id,btn){
 document.addEventListener('DOMContentLoaded',()=>{
   buildPanel('total-sales','sales','件',null);
   buildPanel('points','pts','pt',v=>v.toFixed(2));
-  buildPanel('ratio','ratio','%',v=>v.toFixed(1)+'%');
+  buildPanel('ratio','ratio','',v=>v.toFixed(1)+'%');
   buildPanel('fixed','fixed','件',null);
   buildPanel('nuro','nuro','件',null);
   buildPanel('macaroon','mac','件',null);
