@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>selectSIM スタッフランキング｜2026年5月度 途中経過 | TrustEffort株式会社</title>
+<title>selectSIM スタッフランキング｜2026年5月度 最終結果 | TrustEffort株式会社</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -249,8 +249,8 @@ body{font-family:'Meiryo','メイリオ','Noto Sans JP',sans-serif;background:va
 /* ======= TIED BADGE ======= */
 .tied{display:inline-block;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:5px;vertical-align:middle;background:#FFF5E6;color:#8B4500;border:1px solid var(--orange);}
 
-/* ======= 途中経過バッジ（オレンジ：引継ぎ書1.1 警告・注目色） ======= */
-.interim-badge{display:inline-block;background:var(--orange);color:var(--white);font-size:11px;font-weight:700;padding:2px 12px;border-radius:4px;letter-spacing:.05em;margin-left:10px;vertical-align:middle;}
+/* ======= 最終結果バッジ（オレンジ：引継ぎ書1.1 警告・注目色） ======= */
+.interim-badge{display:inline-block;background:var(--green);color:var(--white);font-size:11px;font-weight:700;padding:2px 12px;border-radius:4px;letter-spacing:.05em;margin-left:10px;vertical-align:middle;}
 
 /* ======= FOOTER ======= */
 footer{
@@ -289,15 +289,15 @@ footer strong{color:rgba(255,255,255,.9);}
     </div>
     <div class="header-nav-info">
       <span class="doc-title">社内資料 / 店舗事業部</span>
-      <span class="doc-meta">2026年5月度　途中経過（5/25時点）</span>
+      <span class="doc-meta">2026年5月度　最終結果（5月度確定）</span>
     </div>
   </div>
   <div class="header-band">
-    <h1>📊 Staff Ranking — 2026年5月度 <span class="interim-badge">途中経過</span></h1>
+    <h1>📊 Staff Ranking — 2026年5月度 <span class="interim-badge">最終結果</span></h1>
     <div class="header-chips">
       <span class="hchip">5店舗</span>
       <span class="hchip">28名</span>
-      <span class="hchip">集計 <strong>5/25時点</strong></span>
+      <span class="hchip">集計 <strong>5月31日確定</strong></span>
       <span class="hchip">固定・NURO・macaroon <strong>クローズ集計</strong></span>
     </div>
   </div>
@@ -335,7 +335,7 @@ footer strong{color:rgba(255,255,255,.9);}
 </div>
 
 <footer>
-  <strong>TrustEffort株式会社</strong> &nbsp;|&nbsp; selectSIM スタッフランキング 2026年5月度 途中経過（5/25時点） &nbsp;|&nbsp; 社内資料・取扱注意
+  <strong>TrustEffort株式会社</strong> &nbsp;|&nbsp; selectSIM スタッフランキング 2026年5月度 最終結果（5月度確定） &nbsp;|&nbsp; 社内資料・取扱注意
 </footer>
 
 <script>
@@ -355,34 +355,34 @@ const STORE_CODE={
 // ポイント・役職・個人目標は日報タブから取得（引継ぎ書準拠）
 // 目標達成率 = 個人累計pt ÷ 個人目標（goalフィールド）
 const STAFF=[
-  {store:"アピア逆瀬川",  name:"武田　裕史",   role:"店長",            sales:4, pts:20.7,    goal:50,   target:440,  fixed:2,nuro:0,mac:1},
-  {store:"アピア逆瀬川",  name:"木本　裕介",   role:"副店長",          sales:46,pts:134.4585,goal:140,  target:440,  fixed:2,nuro:1,mac:7},
-  {store:"アピア逆瀬川",  name:"熊谷　丈一郎", role:"一般（２級）",     sales:13,pts:38.4,    goal:100,  target:440,  fixed:2,nuro:0,mac:0},
-  {store:"アピア逆瀬川",  name:"渡辺　翔",     role:"SYSP",            sales:9, pts:37.26,   goal:20,   target:440,  fixed:0,nuro:0,mac:0},
-  {store:"アピア逆瀬川",  name:"土井　紘士",   role:"スポット業務委託", sales:9, pts:39.9245, goal:50,   target:440,  fixed:0,nuro:0,mac:1},
-  {store:"湊川プラザ",    name:"中本　佑友",   role:"エリアMGR",       sales:7, pts:12.88,   goal:30,   target:600,  fixed:1,nuro:0,mac:0},
-  {store:"湊川プラザ",    name:"井上　和也",   role:"店長",            sales:8, pts:22.4195, goal:65,   target:600,  fixed:2,nuro:0,mac:0},
-  {store:"湊川プラザ",    name:"亀野　龍馬",   role:"AD（１級）",      sales:54,pts:175.1135,goal:270,  target:600,  fixed:8,nuro:3,mac:6},
-  {store:"湊川プラザ",    name:"沼田　彩",     role:"一般（２級）",     sales:29,pts:86.65,   goal:155,  target:600,  fixed:5,nuro:1,mac:0},
-  {store:"湊川プラザ",    name:"渡辺　翔",     role:"",                sales:5, pts:17.61,   goal:60,   target:600,  fixed:0,nuro:0,mac:0},
-  {store:"湊川プラザ",    name:"原口　ひかる", role:"SYSP",            sales:0, pts:0.0,     goal:10,   target:600,  fixed:0,nuro:0,mac:0},
-  {store:"かみしんプラザ",name:"川嶋　未来樹", role:"店長",            sales:17,pts:42.72,   goal:50,   target:800,  fixed:5,nuro:0,mac:1},
-  {store:"かみしんプラザ",name:"近藤　真司",   role:"AD（２級）",      sales:37,pts:117.06,  goal:200,  target:800,  fixed:8,nuro:1,mac:1},
-  {store:"かみしんプラザ",name:"水町　颯斗",   role:"一般（１級）",     sales:52,pts:190.042, goal:200,  target:800,  fixed:5,nuro:2,mac:2},
-  {store:"かみしんプラザ",name:"金谷　黎騎",   role:"常勤業務委託",    sales:48,pts:134.66,  goal:170,  target:800,  fixed:4,nuro:0,mac:0},
-  {store:"かみしんプラザ",name:"鯨岡　くるみ", role:"常勤業務委託",    sales:13,pts:33.44,   goal:50,   target:800,  fixed:0,nuro:0,mac:0},
-  {store:"かみしんプラザ",name:"和賀　弘晃",   role:"SYSP",            sales:18,pts:51.8,    goal:30,   target:800,  fixed:3,nuro:1,mac:0},
-  {store:"甲南山手",      name:"森口　智司",   role:"取締役",          sales:11,pts:26.425,  goal:60,   target:420,  fixed:1,nuro:0,mac:1},
-  {store:"甲南山手",      name:"織田　幸四郎", role:"常勤業務委託",    sales:18,pts:55.1,    goal:120,  target:420,  fixed:2,nuro:0,mac:2},
-  {store:"甲南山手",      name:"種藤　楓夢花", role:"常勤業務委託",    sales:19,pts:59.95,   goal:120,  target:420,  fixed:2,nuro:1,mac:1},
-  {store:"甲南山手",      name:"原口　ひかる", role:"",                sales:1, pts:1.2,     goal:20,   target:420,  fixed:1,nuro:0,mac:0},
-  {store:"布施",          name:"松永　美空",   role:"店長",            sales:6, pts:18.0,    goal:30,   target:752.5,fixed:0,nuro:0,mac:1},
-  {store:"布施",          name:"内川　力哉",   role:"一般（１級）",     sales:12,pts:23.46,   goal:50,   target:752.5,fixed:2,nuro:0,mac:2},
-  {store:"布施",          name:"金林　金平",   role:"常勤業務委託",    sales:28,pts:80.64,   goal:220,  target:752.5,fixed:4,nuro:0,mac:0},
-  {store:"布施",          name:"中村　太一",   role:"常勤業務委託",    sales:21,pts:58.136,  goal:150,  target:752.5,fixed:3,nuro:0,mac:1},
-  {store:"布施",          name:"波左間　良裕", role:"",                sales:0, pts:0.0,     goal:40,   target:752.5,fixed:0,nuro:0,mac:0},
-  {store:"布施",          name:"木下　智理",   role:"常勤業務委託",    sales:0, pts:0.0,     goal:80,   target:752.5,fixed:0,nuro:0,mac:0},
-  {store:"布施",          name:"大坂　巧哉",   role:"SYSP",            sales:1, pts:8.5,     goal:40,   target:752.5,fixed:1,nuro:0,mac:0},
+  {store:"アピア逆瀬川",  name:"武田　裕史",   role:"店長",             sales:9,  pts:35.25,   goal:50,   target:440,  fixed:2,nuro:0,mac:1},
+  {store:"アピア逆瀬川",  name:"木本　裕介",   role:"副店長",           sales:54, pts:157.1545,goal:140,  target:440,  fixed:3,nuro:1,mac:8},
+  {store:"アピア逆瀬川",  name:"熊谷　丈一郎", role:"一般（２級）",      sales:15, pts:41.3,    goal:100,  target:440,  fixed:2,nuro:0,mac:0},
+  {store:"アピア逆瀬川",  name:"渡辺　翔",     role:"SYSP",             sales:10, pts:38.56,   goal:20,   target:440,  fixed:0,nuro:0,mac:0},
+  {store:"アピア逆瀬川",  name:"土井　紘士",   role:"スポット業務委託",  sales:12, pts:55.6245, goal:50,   target:440,  fixed:0,nuro:0,mac:1},
+  {store:"湊川プラザ",    name:"中本　佑友",   role:"エリアMGR",        sales:7,  pts:12.88,   goal:30,   target:600,  fixed:1,nuro:0,mac:0},
+  {store:"湊川プラザ",    name:"井上　和也",   role:"店長",             sales:9,  pts:23.8195, goal:65,   target:600,  fixed:3,nuro:0,mac:0},
+  {store:"湊川プラザ",    name:"亀野　龍馬",   role:"AD（１級）",       sales:74, pts:230.2035,goal:270,  target:600,  fixed:13,nuro:3,mac:6},
+  {store:"湊川プラザ",    name:"沼田　彩",     role:"一般（２級）",      sales:45, pts:136.15,  goal:155,  target:600,  fixed:7,nuro:1,mac:0},
+  {store:"湊川プラザ",    name:"渡辺　翔",     role:"",                 sales:7,  pts:21.21,   goal:60,   target:600,  fixed:0,nuro:0,mac:0},
+  {store:"湊川プラザ",    name:"原口　ひかる", role:"SYSP",             sales:1,  pts:2.42,    goal:10,   target:600,  fixed:0,nuro:0,mac:0},
+  {store:"かみしんプラザ",name:"川嶋　未来樹", role:"店長",             sales:25, pts:58.52,   goal:50,   target:800,  fixed:5,nuro:0,mac:2},
+  {store:"かみしんプラザ",name:"近藤　真司",   role:"AD（２級）",       sales:51, pts:149.62,  goal:200,  target:800,  fixed:10,nuro:1,mac:1},
+  {store:"かみしんプラザ",name:"水町　颯斗",   role:"一般（１級）",      sales:67, pts:240.722, goal:200,  target:800,  fixed:7,nuro:3,mac:2},
+  {store:"かみしんプラザ",name:"金谷　黎騎",   role:"常勤業務委託",     sales:60, pts:171.27,  goal:170,  target:800,  fixed:5,nuro:0,mac:0},
+  {store:"かみしんプラザ",name:"鯨岡　くるみ", role:"常勤業務委託",     sales:14, pts:38.94,   goal:50,   target:800,  fixed:0,nuro:0,mac:0},
+  {store:"かみしんプラザ",name:"和賀　弘晃",   role:"SYSP",             sales:27, pts:73.8,    goal:30,   target:800,  fixed:5,nuro:1,mac:0},
+  {store:"甲南山手",      name:"森口　智司",   role:"取締役",           sales:15, pts:42.407,  goal:60,   target:420,  fixed:1,nuro:0,mac:1},
+  {store:"甲南山手",      name:"織田　幸四郎", role:"常勤業務委託",     sales:22, pts:72.7316, goal:120,  target:420,  fixed:2,nuro:0,mac:2},
+  {store:"甲南山手",      name:"種藤　楓夢花", role:"常勤業務委託",     sales:35, pts:95.35,   goal:120,  target:420,  fixed:3,nuro:1,mac:2},
+  {store:"甲南山手",      name:"原口　ひかる", role:"",                 sales:1,  pts:1.2,     goal:20,   target:420,  fixed:1,nuro:0,mac:0},
+  {store:"布施",          name:"松永　美空",   role:"店長",             sales:16, pts:44.796,  goal:30,   target:752.5,fixed:0,nuro:0,mac:2},
+  {store:"布施",          name:"内川　力哉",   role:"一般（１級）",      sales:26, pts:93.76,   goal:50,   target:752.5,fixed:3,nuro:0,mac:4},
+  {store:"布施",          name:"金林　金平",   role:"常勤業務委託",     sales:45, pts:139.94,  goal:220,  target:752.5,fixed:7,nuro:0,mac:1},
+  {store:"布施",          name:"中村　太一",   role:"常勤業務委託",     sales:28, pts:80.436,  goal:150,  target:752.5,fixed:4,nuro:0,mac:1},
+  {store:"布施",          name:"波左間　良裕", role:"",                 sales:0,  pts:0.0,     goal:40,   target:752.5,fixed:0,nuro:0,mac:0},
+  {store:"布施",          name:"木下　智理",   role:"常勤業務委託",     sales:0,  pts:0.0,     goal:80,   target:752.5,fixed:0,nuro:0,mac:0},
+  {store:"布施",          name:"大坂　巧哉",   role:"SYSP",             sales:2,  pts:14.0,    goal:40,   target:752.5,fixed:1,nuro:0,mac:0},
 ];
 
 // 役職 → CRM RBAC バッジ分類（引継ぎ書 2.6準拠）
